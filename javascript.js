@@ -13,7 +13,7 @@ function addJuice() {
     maxHeight = bar.offsetHeight;
     newHeight = newHeight / maxHeight;
     newHeight *= 100;
-    newHeight += 13;
+    newHeight += 10;
     newHeight = Math.round(newHeight);
     if(newHeight > 95){
         newHeight = 95;
@@ -52,12 +52,21 @@ async function rotateGlass(){
     bar.style.transform = "rotate(0deg)";
 }
 
-function breakGlass(){
+async function breakGlass(){
     console.log("broken");
-    console.log(prevColor)
+    console.log(prevColor);
+    bar.style.transition = "scale 1.8s, transform 0.4s";
+    bar.style.scale = "3";
+    bar.style.pointerEvents = "none";
+    document.querySelector("h1").style.visibility = "hidden";
+    await delay(1500);
+    bar.style.transition = "scale 0.25s, transform 0.4s";
+    bar.style.scale = "1";
+    await delay(150);
+    bar.style.scale = "4";
+    await delay(170);
     document.body.style.backgroundColor = prevColor;
     bar.style.visibility = "hidden";
-    document.querySelector("h1").style.visibility = "hidden";
 }
 
 function getRandomNumba(min, max){
