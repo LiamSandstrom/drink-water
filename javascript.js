@@ -42,9 +42,9 @@ async function rotateGlass(){
     else{
         dir = 1;
     }
-    bar.style.transform = `rotate(${dir * 25*m}deg) scale(1.2)`;
+    bar.style.transform = `rotate(${dir * 17*m}deg) scale(1.2)`;
     await delay(50);
-    bar.style.transform = `rotate(${dir * -35 * m}deg)`;
+    bar.style.transform = `rotate(${dir * -25 * m}deg)`;
     console.log(bar.style.transform);
     await delay(50);
     bar.style.transform = `scale(${1 * m})`;
